@@ -158,7 +158,15 @@ class RestaurantsTableViewController: UIViewController, UITableViewDataSource, U
 
       // Write Data to Firestore
         let collection = Firestore.firestore().collection("restaurants")
-
+        let restaurant = Restaurant(
+          name: name,
+          category: category,
+          city: city,
+          price: price,
+          ratingCount: 0,
+          averageRating: 0
+        )
+        collection.addDocument(data: restaurant.dictionary)
     }
   }
 
